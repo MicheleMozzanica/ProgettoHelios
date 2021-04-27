@@ -30,7 +30,6 @@ public class mainView {
 	public mainView() {
 		initialize();
 	}
-
 	/**
 	 * Initialize the contents of the frame.
 	 */
