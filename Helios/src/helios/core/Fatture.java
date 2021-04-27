@@ -13,5 +13,4 @@ public class Fatture {
 		this.codCliente = codCliente;
 		this.listProduct = listProduct;
 	} 
-
 }
