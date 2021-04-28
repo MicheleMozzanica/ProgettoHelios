@@ -11,8 +11,5 @@ public class Prodotto {
 		this.price = price;
 		this.iva = iva;
 	}
-	
-	
-	
-	
+
 }

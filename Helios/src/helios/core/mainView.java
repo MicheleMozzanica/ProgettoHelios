@@ -3,6 +3,8 @@ package helios.core;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import java.awt.FlowLayout;
+import javax.swing.JTextArea;
 
 public class mainView {
 
@@ -38,5 +40,4 @@ public class mainView {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-
 }

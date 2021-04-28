@@ -12,5 +12,6 @@ public class Fatture {
 		this.nFattura = nFattura;
 		this.codCliente = codCliente;
 		this.listProduct = listProduct;
-	} 
+	}
+	
 }
