@@ -7,6 +7,7 @@ import java.awt.FlowLayout;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -20,7 +21,14 @@ public class mainView {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
+		
+		//Magazzino Object
+		
 		Magazzino myMagazzino = new Magazzino("gino");
+		
+		
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -48,6 +56,7 @@ public class mainView {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.add(new JLabel(new ImageIcon("/Users/simonesaleri/Documents/GitHub/ProgettoHelios")));
 		
 		JLabel lblNewLabel = new JLabel("Helios Project");
 		lblNewLabel.setBounds(166, 25, 93, 16);
