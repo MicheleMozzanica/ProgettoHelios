@@ -21,7 +21,6 @@ public class mainView {
 	 */
 	public static void main(String[] args) {
 		Magazzino myMagazzino = new Magazzino("gino");
-		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
