@@ -5,15 +5,23 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.FlowLayout;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.awt.event.ActionEvent;
 
 public class mainView {
 
 	private JFrame frame;
-
+	
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		Magazzino myMagazzino = new Magazzino("gino");
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -24,8 +32,9 @@ public class mainView {
 				}
 			}
 		});
+	
 	}
-
+	
 	/**
 	 * Create the application.
 	 */
@@ -39,5 +48,40 @@ public class mainView {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Helios Project");
+		lblNewLabel.setBounds(166, 25, 93, 16);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JButton btnOpenRegistraFattura = new JButton("Registra Fattura");
+		btnOpenRegistraFattura.setBounds(156, 78, 117, 29);
+		frame.getContentPane().add(btnOpenRegistraFattura);
+		
+		JButton btnOpenEmettiFattura = new JButton("Emetti fattura");
+		btnOpenEmettiFattura.setBounds(156, 119, 117, 29);
+		frame.getContentPane().add(btnOpenEmettiFattura);
+		
+		JButton btnOpenVisualizzaMagazzino = new JButton("Visualizza Magazzino");
+		btnOpenVisualizzaMagazzino.setBounds(156, 160, 117, 29);
+		frame.getContentPane().add(btnOpenVisualizzaMagazzino);
+		
+		JButton btnOpenGestioneOrdini = new JButton("Gestione Ordini");
+		btnOpenGestioneOrdini.setBounds(156, 201, 117, 29);
+		frame.getContentPane().add(btnOpenGestioneOrdini);
+		
+		JButton btnOpenClienti = new JButton("Clienti");
+		btnOpenClienti.setBounds(327, 243, 117, 29);
+		frame.getContentPane().add(btnOpenClienti);
+		
+		
+		
+		
+		
+		/** Actions
+		 * 
+		 * 
+		 */
+
 	}
 }
