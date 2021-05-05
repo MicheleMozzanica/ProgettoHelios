@@ -26,7 +26,7 @@ public class mainView {
 		//Magazzino Object
 		
 		Magazzino myMagazzino = new Magazzino("gino");
-		
+		myMagazzino.addProdotto();
 		
 		
 		EventQueue.invokeLater(new Runnable() {
@@ -56,7 +56,7 @@ public class mainView {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.add(new JLabel(new ImageIcon("/Users/simonesaleri/Documents/GitHub/ProgettoHelios")));
+		frame.getContentPane().add(new JLabel(new ImageIcon("/Users/simonesaleri/Documents/GitHub/ProgettoHelios")));
 		
 		JLabel lblNewLabel = new JLabel("Helios Project");
 		lblNewLabel.setBounds(166, 25, 93, 16);
@@ -71,6 +71,7 @@ public class mainView {
 		frame.getContentPane().add(btnOpenEmettiFattura);
 		
 		JButton btnOpenVisualizzaMagazzino = new JButton("Visualizza Magazzino");
+		
 		btnOpenVisualizzaMagazzino.setBounds(156, 160, 117, 29);
 		frame.getContentPane().add(btnOpenVisualizzaMagazzino);
 		
@@ -90,6 +91,13 @@ public class mainView {
 		 * 
 		 * 
 		 */
+		
+		btnOpenVisualizzaMagazzino.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ProductsDisplay displayMagazzino = new ProductsDisplay();
+				displayMagazzino.main(null);
+			}
+		});
 
 	}
 }

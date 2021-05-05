@@ -56,11 +56,11 @@ public class RegisrazioneCliente {
 		frame.getContentPane().setLayout(null);
 
 		JTextArea txtUsername = new JTextArea();
-		txtUsername.setBounds(205, 94, 198, 16);
+		txtUsername.setBounds(129, 39, 198, 16);
 		frame.getContentPane().add(txtUsername);
 
 		JTextArea txtPassword = new JTextArea();
-		txtPassword.setBounds(205, 170, 198, 16);
+		txtPassword.setBounds(129, 67, 198, 16);
 		frame.getContentPane().add(txtPassword);
 
 		JButton btnSave = new JButton("Save");
@@ -94,17 +94,17 @@ public class RegisrazioneCliente {
 		btnExit.setBounds(42, 222, 117, 29);
 		frame.getContentPane().add(btnExit);
 
-		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setBounds(42, 94, 117, 16);
-		frame.getContentPane().add(lblUsername);
+		JLabel lblDenominazione = new JLabel("Denominazione");
+		lblDenominazione.setBounds(19, 39, 98, 16);
+		frame.getContentPane().add(lblDenominazione);
 
-		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setBounds(42, 170, 117, 16);
-		frame.getContentPane().add(lblPassword);
+		JLabel lblPartitiaIva = new JLabel("Partitia Iva");
+		lblPartitiaIva.setBounds(19, 67, 101, 16);
+		frame.getContentPane().add(lblPartitiaIva);
 
 		JLabel lblRegForm = new JLabel("Registrazione cliente");
 		lblRegForm.setFont(new Font("Lucida Grande", Font.BOLD, 20));
-		lblRegForm.setBounds(117, 35, 255, 40);
+		lblRegForm.setBounds(117, 6, 220, 29);
 		frame.getContentPane().add(lblRegForm);
 	}
 }

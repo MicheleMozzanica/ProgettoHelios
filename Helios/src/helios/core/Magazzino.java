@@ -18,7 +18,7 @@ public class Magazzino {
 	Prodotto myProd2 = new Prodotto("prod2",2,4,22);
 	Prodotto myProd3 = new Prodotto("prod3",2,16,22);
 	
-	public void addProdotto() throws IOException {
+	public void addProdotto() {
 		
 		myProducts.add(myProd1);
 		myProducts.add(myProd2);
@@ -29,9 +29,13 @@ public class Magazzino {
 			System.out.println(tmpProd.toString());
 		}
 	
-		write();
 	}
 
+	
+	public ArrayList<Prodotto> ExtractProduct(){
+		return myProducts;
+		
+	}
 	private void write() {
 		//write to file 
 //		try{
