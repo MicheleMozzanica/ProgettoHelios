@@ -16,7 +16,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class RegisrazioneCliente {
+public class RegistrazioneCliente {
 
 	private JFrame frame;
 	private JTextField tUserName;
@@ -29,7 +29,7 @@ public class RegisrazioneCliente {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RegisrazioneCliente window = new RegisrazioneCliente();
+					RegistrazioneCliente window = new RegistrazioneCliente();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +41,7 @@ public class RegisrazioneCliente {
 	/**
 	 * Create the application.
 	 */
-	public RegisrazioneCliente() {
+	public RegistrazioneCliente() {
 		initialize();
 	}
 
@@ -55,16 +55,16 @@ public class RegisrazioneCliente {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JTextArea txtUsername = new JTextArea();
-		txtUsername.setBounds(129, 39, 198, 16);
-		frame.getContentPane().add(txtUsername);
+		JTextArea txtDenominazione = new JTextArea();
+		txtDenominazione.setBounds(129, 39, 198, 16);
+		frame.getContentPane().add(txtDenominazione);
 
-		JTextArea txtPassword = new JTextArea();
-		txtPassword.setBounds(129, 67, 198, 16);
-		frame.getContentPane().add(txtPassword);
+		JTextArea txtPIVA = new JTextArea();
+		txtPIVA.setBounds(129, 67, 198, 16);
+		frame.getContentPane().add(txtPIVA);
 
-		JButton btnSave = new JButton("Save");
-		btnSave.addActionListener(new ActionListener() {
+		JButton btnRegistra = new JButton("Registra");
+		btnRegistra.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String UserName = tUserName.getText();
 				String PassWord = new String(tPassword.getPassword());
@@ -79,11 +79,11 @@ public class RegisrazioneCliente {
 
 			}
 		});
-		btnSave.setBounds(286, 222, 117, 29);
-		frame.getContentPane().add(btnSave);
+		btnRegistra.setBounds(286, 222, 117, 29);
+		frame.getContentPane().add(btnRegistra);
 
-		JButton btnExit = new JButton("Exit");
-		btnExit.addActionListener(new ActionListener() {
+		JButton btnCancel = new JButton("Annulla");
+		btnCancel.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
 				if(JOptionPane.showConfirmDialog(frame, "Sei sicuro di voler uscire?", "FrmLogin", JOptionPane.YES_NO_CANCEL_OPTION)== JOptionPane.YES_OPTION) {
@@ -91,8 +91,8 @@ public class RegisrazioneCliente {
 				}
 			}
 		});
-		btnExit.setBounds(42, 222, 117, 29);
-		frame.getContentPane().add(btnExit);
+		btnCancel.setBounds(42, 222, 117, 29);
+		frame.getContentPane().add(btnCancel);
 
 		JLabel lblDenominazione = new JLabel("Denominazione");
 		lblDenominazione.setBounds(19, 39, 98, 16);
@@ -106,5 +106,21 @@ public class RegisrazioneCliente {
 		lblRegForm.setFont(new Font("Lucida Grande", Font.BOLD, 20));
 		lblRegForm.setBounds(117, 6, 220, 29);
 		frame.getContentPane().add(lblRegForm);
+		
+		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setBounds(19, 121, 101, 16);
+		frame.getContentPane().add(lblEmail);
+		
+		JTextArea txtEmail = new JTextArea();
+		txtEmail.setBounds(129, 121, 198, 16);
+		frame.getContentPane().add(txtEmail);
+		
+		JTextArea txtSedeLegale = new JTextArea();
+		txtSedeLegale.setBounds(129, 93, 198, 16);
+		frame.getContentPane().add(txtSedeLegale);
+		
+		JLabel lblSedeLegale = new JLabel("Sede Legale");
+		lblSedeLegale.setBounds(19, 93, 101, 16);
+		frame.getContentPane().add(lblSedeLegale);
 	}
 }
