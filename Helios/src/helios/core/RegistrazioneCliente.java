@@ -52,15 +52,15 @@ public class RegistrazioneCliente {
 		frame = new JFrame();
 		frame.setBackground(Color.LIGHT_GRAY);
 		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JTextArea txtDenominazione = new JTextArea();
-		txtDenominazione.setBounds(129, 39, 198, 16);
+		txtDenominazione.setBounds(182, 72, 198, 16);
 		frame.getContentPane().add(txtDenominazione);
 
 		JTextArea txtPIVA = new JTextArea();
-		txtPIVA.setBounds(129, 67, 198, 16);
+		txtPIVA.setBounds(182, 100, 198, 16);
 		frame.getContentPane().add(txtPIVA);
 
 		JButton btnRegistra = new JButton("Registra");
@@ -87,7 +87,7 @@ public class RegistrazioneCliente {
 			
 			public void actionPerformed(ActionEvent e) {
 				if(JOptionPane.showConfirmDialog(frame, "Sei sicuro di voler uscire?", "FrmLogin", JOptionPane.YES_NO_CANCEL_OPTION)== JOptionPane.YES_OPTION) {
-					System.exit(JFrame.EXIT_ON_CLOSE);
+					System.exit(JFrame.DISPOSE_ON_CLOSE);
 				}
 			}
 		});
@@ -95,11 +95,11 @@ public class RegistrazioneCliente {
 		frame.getContentPane().add(btnCancel);
 
 		JLabel lblDenominazione = new JLabel("Denominazione");
-		lblDenominazione.setBounds(19, 39, 98, 16);
+		lblDenominazione.setBounds(72, 72, 98, 16);
 		frame.getContentPane().add(lblDenominazione);
 
 		JLabel lblPartitiaIva = new JLabel("Partitia Iva");
-		lblPartitiaIva.setBounds(19, 67, 101, 16);
+		lblPartitiaIva.setBounds(72, 100, 101, 16);
 		frame.getContentPane().add(lblPartitiaIva);
 
 		JLabel lblRegForm = new JLabel("Registrazione cliente");
@@ -108,19 +108,19 @@ public class RegistrazioneCliente {
 		frame.getContentPane().add(lblRegForm);
 		
 		JLabel lblEmail = new JLabel("Email");
-		lblEmail.setBounds(19, 121, 101, 16);
+		lblEmail.setBounds(72, 154, 101, 16);
 		frame.getContentPane().add(lblEmail);
 		
 		JTextArea txtEmail = new JTextArea();
-		txtEmail.setBounds(129, 121, 198, 16);
+		txtEmail.setBounds(182, 154, 198, 16);
 		frame.getContentPane().add(txtEmail);
 		
 		JTextArea txtSedeLegale = new JTextArea();
-		txtSedeLegale.setBounds(129, 93, 198, 16);
+		txtSedeLegale.setBounds(182, 126, 198, 16);
 		frame.getContentPane().add(txtSedeLegale);
 		
 		JLabel lblSedeLegale = new JLabel("Sede Legale");
-		lblSedeLegale.setBounds(19, 93, 101, 16);
+		lblSedeLegale.setBounds(72, 126, 101, 16);
 		frame.getContentPane().add(lblSedeLegale);
 	}
 }

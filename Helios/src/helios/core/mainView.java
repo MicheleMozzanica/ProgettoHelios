@@ -83,10 +83,6 @@ public class mainView {
 		btnOpenClienti.setBounds(327, 243, 117, 29);
 		frame.getContentPane().add(btnOpenClienti);
 		
-		
-		
-		
-		
 		/** Actions
 		 * 
 		 * 
@@ -99,5 +95,10 @@ public class mainView {
 			}
 		});
 
+		btnOpenClienti.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ClientDisplay.main(null);
+			}
+		});
 	}
 }
