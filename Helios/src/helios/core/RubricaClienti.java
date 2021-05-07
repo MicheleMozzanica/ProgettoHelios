@@ -14,6 +14,7 @@ public class RubricaClienti {
 		clienti.get(nome);
 	}
 	
-	
+	//bisogna collegare l'anagrafica registrazione cliente a questa classe in 
+	//modo che quando viene aggiunto un nuovo cliente vada automaticamente in questa hashmap 
 	
 }
