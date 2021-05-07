@@ -50,6 +50,7 @@ public class RegistrazioneCliente {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
 		frame.setBackground(Color.LIGHT_GRAY);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -84,9 +85,10 @@ public class RegistrazioneCliente {
 
 		JButton btnCancel = new JButton("Annulla");
 		btnCancel.addActionListener(new ActionListener() {
-			
+
 			public void actionPerformed(ActionEvent e) {
-				if(JOptionPane.showConfirmDialog(frame, "Sei sicuro di voler uscire?", "FrmLogin", JOptionPane.YES_NO_CANCEL_OPTION)== JOptionPane.YES_OPTION) {
+				if (JOptionPane.showConfirmDialog(frame, "Sei sicuro di voler uscire?", "FrmLogin",
+						JOptionPane.YES_NO_CANCEL_OPTION) == JOptionPane.YES_OPTION) {
 					System.exit(JFrame.DISPOSE_ON_CLOSE);
 				}
 			}
@@ -106,19 +108,19 @@ public class RegistrazioneCliente {
 		lblRegForm.setFont(new Font("Lucida Grande", Font.BOLD, 20));
 		lblRegForm.setBounds(117, 6, 220, 29);
 		frame.getContentPane().add(lblRegForm);
-		
+
 		JLabel lblEmail = new JLabel("Email");
 		lblEmail.setBounds(72, 154, 101, 16);
 		frame.getContentPane().add(lblEmail);
-		
+
 		JTextArea txtEmail = new JTextArea();
 		txtEmail.setBounds(182, 154, 198, 16);
 		frame.getContentPane().add(txtEmail);
-		
+
 		JTextArea txtSedeLegale = new JTextArea();
 		txtSedeLegale.setBounds(182, 126, 198, 16);
 		frame.getContentPane().add(txtSedeLegale);
-		
+
 		JLabel lblSedeLegale = new JLabel("Sede Legale");
 		lblSedeLegale.setBounds(72, 126, 101, 16);
 		frame.getContentPane().add(lblSedeLegale);
