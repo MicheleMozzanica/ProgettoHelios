@@ -1,13 +1,13 @@
 package helios.core;
 
-public class Fortnitore extends RubricaFornitori {
+public class Fornitore extends RubricaFornitori {
 
 	public String denominazione;
 	public String sedeLegale;
 	public String pIVA;
 	public String eMail;
 
-	public Fortnitore(String denominazione, String sedeLegale, String pIVA, String eMail) {
+	public Fornitore(String denominazione, String sedeLegale, String pIVA, String eMail) {
 		super();
 		this.denominazione = denominazione;
 		this.sedeLegale = sedeLegale;

@@ -23,10 +23,10 @@ public class mainView {
 	public static void main(String[] args) {
 
 		// Magazzino Object
-
+		
 		Magazzino myMagazzino = new Magazzino("gino");
-		myMagazzino.addProdotto();
-
+		RubricaClienti MyClienti = new RubricaClienti();
+		RubricaFornitori MyFornitori = new RubricaFornitori();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

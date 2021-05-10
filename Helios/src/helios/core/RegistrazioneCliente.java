@@ -19,8 +19,7 @@ import java.awt.event.ActionListener;
 public class RegistrazioneCliente {
 
 	private JFrame frame;
-	private JTextField tUserName;
-	private JPasswordField tPassword;
+	RubricaClienti myClients = new RubricaClienti();
 
 	/**
 	 * Launch the application.
@@ -65,21 +64,7 @@ public class RegistrazioneCliente {
 		frame.getContentPane().add(txtPIVA);
 
 		JButton btnRegistra = new JButton("Registra");
-		btnRegistra.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String UserName = tUserName.getText();
-				String PassWord = new String(tPassword.getPassword());
-
-				if (PassWord.isEmpty() && PassWord.length() < 5) {
-					tUserName.setText(null);
-					tPassword.setText(null);
-					JOptionPane.showMessageDialog(null, "Registrazione avvenuta con successo");
-				} else {
-					JOptionPane.showMessageDialog(null, "Invalid Password or Username");
-				}
-
-			}
-		});
+		
 		btnRegistra.setBounds(286, 222, 117, 29);
 		frame.getContentPane().add(btnRegistra);
 
@@ -100,9 +85,9 @@ public class RegistrazioneCliente {
 		lblDenominazione.setBounds(72, 72, 98, 16);
 		frame.getContentPane().add(lblDenominazione);
 
-		JLabel lblPartitiaIva = new JLabel("Partitia Iva");
-		lblPartitiaIva.setBounds(72, 100, 101, 16);
-		frame.getContentPane().add(lblPartitiaIva);
+		JLabel lblPartitaIva = new JLabel("Partitia Iva");
+		lblPartitaIva.setBounds(72, 100, 101, 16);
+		frame.getContentPane().add(lblPartitaIva);
 
 		JLabel lblRegForm = new JLabel("Registrazione cliente");
 		lblRegForm.setFont(new Font("Lucida Grande", Font.BOLD, 20));
@@ -124,5 +109,32 @@ public class RegistrazioneCliente {
 		JLabel lblSedeLegale = new JLabel("Sede Legale");
 		lblSedeLegale.setBounds(72, 126, 101, 16);
 		frame.getContentPane().add(lblSedeLegale);
+		
+		
+		
+		
+		/*Actions*/
+		
+		
+		btnRegistra.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String denominazione = txtDenominazione.getText();
+				String pIva = txtPIVA.getText();
+				String sedeLegale= txtSedeLegale.getText();
+				String Email = txtEmail.getText();
+				Cliente clientTmp = new Cliente(denominazione,sedeLegale,pIva,Email);
+				String CodeClient = denominazione.substring(0, 3);
+				
+				clientRegister(clientTmp, CodeClient);
+			}
+		});
+		
+	}
+	
+	
+	
+	public void clientRegister(Cliente clienteTmp1, String Code) {
+		
+		myClients.addCliente(Code, clienteTmp1);
 	}
 }

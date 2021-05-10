@@ -1,13 +1,20 @@
 package helios.core;
 
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 public class RubricaClienti {
 	
-	public HashMap<pIva, Cliente> clienti;
+	public HashMap<String, Cliente> clienti = new HashMap();;
 	
-	public void addCliente(String nome, pIva pIva) {
-		clienti.put(pIva, nome);
+	public void addCliente(String Code, Cliente clientTmp) {
+		
+		/* il campo CODE sono le prime 3 lettere della denominazione del cliente*/
+		clienti.put(Code, clientTmp);	
+		
+		for (Entry<String, Cliente> entry : clienti.entrySet()) {
+	        System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
+	    }
 	}
 	
 	public void getCliente(String nome, pIva pIva) {
