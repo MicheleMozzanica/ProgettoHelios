@@ -11,8 +11,5 @@ public class RubricaFornitori {
 		//il campo CODE sono le prime 3 lettere della denominazione del cliente
 		fornitori.put(codice, fornitoreTmp);
 	}
-
-	
-	
 	
 }
