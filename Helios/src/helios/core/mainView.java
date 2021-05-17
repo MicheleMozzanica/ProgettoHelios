@@ -21,6 +21,8 @@ public class mainView {
 	public HashMap<String, Cliente> clienti = new HashMap();
 	RubricaClienti MyClienti = new RubricaClienti(clienti);
 	RubricaFornitori MyFornitori = new RubricaFornitori();
+//	
+//	public ImageIcon myImage = new ImageIcon(getClass().getResource());
 	/**
 	 * Launch the application.
 	 */
@@ -58,9 +60,10 @@ public class mainView {
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(new JLabel(new ImageIcon("/Users/simonesaleri/Documents/GitHub/ProgettoHelios")));
 
-		JLabel lblNewLabel = new JLabel("Helios Project");
-		lblNewLabel.setBounds(166, 25, 93, 16);
-		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel ImageLabel = new JLabel(myImage);
+		ImageLabel.setBounds(298, 50, 93, 16);
+		frame.getContentPane().add(ImageLabel);
 
 		JButton btnOpenRegistraFattura = new JButton("Registra Fattura");
 		btnOpenRegistraFattura.setBounds(127, 78, 178, 29);
@@ -82,6 +85,10 @@ public class mainView {
 		JButton btnOpenClienti = new JButton("Clienti");
 		btnOpenClienti.setBounds(327, 243, 117, 29);
 		frame.getContentPane().add(btnOpenClienti);
+		
+		JLabel lblNewLabel_1 = new JLabel("Helios Project");
+		lblNewLabel_1.setBounds(166, 25, 93, 16);
+		frame.getContentPane().add(lblNewLabel_1);
 
 		/**
 		 * Actions
