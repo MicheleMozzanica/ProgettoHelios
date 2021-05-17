@@ -16,7 +16,7 @@ public class Prodotto implements Serializable{
 
 	@Override
 	public String toString() {
-		return " --> Name: " + nome + " --> Quantity: " + quantity + " --> Price: " + price + "--> Iva: " + iva;
+		return " --> Name: " + nome + " --> Quantity: " + quantity + " --> Price: " + price + " € " + "--> Iva: " + iva;
 	}
 	
 	

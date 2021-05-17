@@ -7,20 +7,22 @@ import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
 
 public class ClientDisplay extends mainView{
 
 	private JFrame frame;
-	RubricaClienti myRubricaClienti;
 	public HashMap<String, Cliente> ImportClienti = new HashMap();
+	RubricaClienti myRubricaClienti = new RubricaClienti(ImportClienti);
 	
 	
 
 	public ClientDisplay(JFrame frame, RubricaClienti myRubricaClienti, HashMap<String, Cliente> Importclienti) {
-		this.MyClienti = myRubricaClienti;
+		myRubricaClienti = this.MyClienti;
 		this.frame = frame;
 		this.ImportClienti = ImportClienti; 	
 	}
@@ -68,12 +70,14 @@ public class ClientDisplay extends mainView{
 		
 		
 		ImportClienti = myRubricaClienti.exportClients();
-////		JList ClientList = ImportClienti.toString();
-//		ClientList.setBounds(6, 26, 438, 215);
-//		frame.getContentPane().add(ClientList);
 		
-		
-		
+		ArrayList<Cliente> myClients = new ArrayList<Cliente> ();
+		for (Entry<String, Cliente> entry : ImportClienti.entrySet()) {
+	        myClients.add(entry.getValue());
+	    }
+		JList ClientList = new JList(myClients.toArray());
+		ClientList.setBounds(6, 26, 438, 215);
+		frame.getContentPane().add(ClientList);
 		
 		//* ACTIONS*//
 		
@@ -82,5 +86,10 @@ public class ClientDisplay extends mainView{
 				RegistrazioneCliente.main(null);
 			}
 		});
+		
+		
+//		public JList refreshMetod() {
+//			return null;
+//		}
 	}
 }

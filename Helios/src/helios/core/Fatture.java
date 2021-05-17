@@ -4,14 +4,10 @@ import java.util.ArrayList;
 
 public class Fatture {
 	
-	int nFattura, codCliente;
-	ArrayList<Prodotto> listProduct = new ArrayList();
+	int nFattura;
 	
-	public Fatture(int nFattura, int codCliente, ArrayList<Prodotto> listProduct) {
-		super();
+	public Fatture(int nFattura, int codCliente) {
 		this.nFattura = nFattura;
-		this.codCliente = codCliente;
-		this.listProduct = listProduct;
 	}
 	
 }
