@@ -17,7 +17,7 @@ public class RubricaClienti {
 	    }
 	}
 	
-	public void getCliente(String nome, pIva pIva) {
+	public void getCliente(String nome,int pIva) {
 		clienti.get(nome);
 	}
 	
