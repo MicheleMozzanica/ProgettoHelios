@@ -36,39 +36,6 @@ public class Magazzino {
 		return myProducts;
 		
 	}
-	private void write() {
-		//write to file 
-//		try{
-//		    FileOutputStream writeData = new FileOutputStream("dataMagazzino.ser");
-//		    ObjectOutputStream writeStream = new ObjectOutputStream(writeData);
-//
-//		    writeStream.writeObject(myProducts);
-//		    writeStream.flush();
-//		    writeStream.close();
-//
-//		}catch (IOException e) {
-//		    e.printStackTrace();
-//		}
-//		finally {
-//			System.out.println("file Saved.");
-//		}
-	}
-
-	public void readData() {
-		//READS THE DATA FROM THE FILE AND PUTS RECORDS INTO A ARRAYLIST OF PRODOTTO
-//		try{
-//		    FileInputStream readData = new FileInputStream("dataMagazzino.ser");
-//		    ObjectInputStream readStream = new ObjectInputStream(readData);
-//
-//		    ArrayList<Prodotto> MyProd = (ArrayList<Prodotto>) readStream.readObject();
-//		    readStream.close();
-//		    System.out.println(MyProd.toString() + "\n");
-//		}catch (Exception e) {
-//		    e.printStackTrace();
-//		}
-		// TODO Auto-generated method stub
-		
-	}
 	
 
 }
