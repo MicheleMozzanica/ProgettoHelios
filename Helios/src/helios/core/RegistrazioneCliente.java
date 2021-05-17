@@ -16,10 +16,10 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class RegistrazioneCliente {
+public class RegistrazioneCliente extends mainView {
 
 	private JFrame frame;
-	RubricaClienti myClients = new RubricaClienti(null);
+	RubricaClienti myClientsTmp = new RubricaClienti(clienti);
 
 	/**
 	 * Launch the application.
@@ -35,6 +35,11 @@ public class RegistrazioneCliente {
 				}
 			}
 		});
+	}
+
+	public RegistrazioneCliente(JFrame frame) {
+		this.frame = frame;
+		this.MyClienti = myClientsTmp;
 	}
 
 	/**
@@ -135,6 +140,7 @@ public class RegistrazioneCliente {
 	
 	public void clientRegister(Cliente clienteTmp1, String Code) {
 		
-		myClients.addCliente(Code, clienteTmp1);
+		MyClienti.addCliente(Code, clienteTmp1);
+		
 	}
 }
