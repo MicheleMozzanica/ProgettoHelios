@@ -54,6 +54,22 @@ public class ProductsDisplay {
 		lblMyProducts.setBounds(200, 6, 61, 16);
 		frame.getContentPane().add(lblMyProducts);
 		
+		
+	
+//		Prodotto myProd1 = new Prodotto("prod1",1,1,22);
+//		Prodotto myProd2 = new Prodotto("prod2",2,4,22);
+//		Prodotto myProd3 = new Prodotto("prod3",2,16,22);
+		ImportedProduct = myImportMagazzino.ExtractProduct();
+		
+		for(Prodotto tmpProd : ImportedProduct)
+		{
+			System.out.println(tmpProd.toString());
+		}
+		
+		JList ProductsJList = new JList(ImportedProduct.toArray());
+		ProductsJList.setBounds(6, 32, 438, 240);
+		frame.getContentPane().add(ProductsJList);
+		
 	}
-
+	
 }

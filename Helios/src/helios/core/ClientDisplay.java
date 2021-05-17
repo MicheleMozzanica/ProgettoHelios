@@ -12,12 +12,14 @@ import java.awt.event.ActionEvent;
 public class ClientDisplay {
 
 	private JFrame frame;
+	Magazzino MyMagazzino = new Magazzino("Peppino");
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+
 			public void run() {
 				try {
 					ClientDisplay window = new ClientDisplay();
