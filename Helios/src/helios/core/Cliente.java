@@ -1,6 +1,6 @@
 package helios.core;
 
-public class Cliente extends RubricaClienti{
+public class Cliente{
 
 	public String denominazione;
 	public String sedeLegale;
@@ -8,7 +8,6 @@ public class Cliente extends RubricaClienti{
 	public String eMail;
 
 	public Cliente(String denominazione, String sedeLegale, String pIva, String eMail) {
-		super();
 		this.denominazione = denominazione;
 		this.sedeLegale = sedeLegale;
 		this.pIva = pIva;

@@ -11,22 +11,20 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.HashMap;
 import java.awt.event.ActionEvent;
 
 public class mainView {
 
 	private JFrame frame;
-
+	Magazzino myMagazzino = new Magazzino("gino");
+	public HashMap<String, Cliente> clienti = new HashMap();
+	RubricaClienti MyClienti = new RubricaClienti(clienti);
+	RubricaFornitori MyFornitori = new RubricaFornitori();
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-
-		// Magazzino Object
-		
-		Magazzino myMagazzino = new Magazzino("gino");
-		RubricaClienti MyClienti = new RubricaClienti();
-		RubricaFornitori MyFornitori = new RubricaFornitori();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -40,6 +38,8 @@ public class mainView {
 		});
 
 	}
+	
+	
 
 	/**
 	 * Create the application.

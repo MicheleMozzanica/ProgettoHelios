@@ -19,7 +19,7 @@ import java.awt.event.ActionListener;
 public class RegistrazioneCliente {
 
 	private JFrame frame;
-	RubricaClienti myClients = new RubricaClienti();
+	RubricaClienti myClients = new RubricaClienti(null);
 
 	/**
 	 * Launch the application.

@@ -7,19 +7,29 @@ import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 import java.awt.event.ActionEvent;
+import javax.swing.JList;
 
-public class ClientDisplay {
+public class ClientDisplay extends mainView{
 
 	private JFrame frame;
-	Magazzino MyMagazzino = new Magazzino("Peppino");
+	RubricaClienti myRubricaClienti;
+	public HashMap<String, Cliente> ImportClienti = new HashMap();
+	
+	
+
+	public ClientDisplay(JFrame frame, RubricaClienti myRubricaClienti, HashMap<String, Cliente> Importclienti) {
+		this.MyClienti = myRubricaClienti;
+		this.frame = frame;
+		this.ImportClienti = ImportClienti; 	
+	}
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
-
 			public void run() {
 				try {
 					ClientDisplay window = new ClientDisplay();
@@ -55,6 +65,12 @@ public class ClientDisplay {
 		
 		btnNewClient.setBounds(272, 243, 172, 29);
 		frame.getContentPane().add(btnNewClient);
+		
+		
+		ImportClienti = myRubricaClienti.exportClients();
+////		JList ClientList = ImportClienti.toString();
+//		ClientList.setBounds(6, 26, 438, 215);
+//		frame.getContentPane().add(ClientList);
 		
 		
 		
