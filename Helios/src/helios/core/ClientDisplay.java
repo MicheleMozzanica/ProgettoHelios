@@ -17,14 +17,12 @@ public class ClientDisplay extends mainView{
 
 	private JFrame frame;
 	public HashMap<String, Cliente> ImportClienti = new HashMap();
-	RubricaClienti myRubricaClienti = new RubricaClienti(ImportClienti);
 	
 	
 
-	public ClientDisplay(JFrame frame, RubricaClienti myRubricaClienti, HashMap<String, Cliente> Importclienti) {
+	public ClientDisplay(JFrame frame, RubricaClienti myRubricaClienti) {
 		myRubricaClienti = this.MyClienti;
-		this.frame = frame;
-		this.ImportClienti = ImportClienti; 	
+		this.frame = frame;	
 	}
 
 	/**
@@ -69,8 +67,13 @@ public class ClientDisplay extends mainView{
 		frame.getContentPane().add(btnNewClient);
 		
 		
-		ImportClienti = myRubricaClienti.exportClients();
+		JButton RefreshButton = new JButton("Refresh");
 		
+		RefreshButton.setBounds(16, 243, 117, 29);
+		frame.getContentPane().add(RefreshButton);
+		
+		
+		ImportClienti = MyClienti.exportClients();
 		ArrayList<Cliente> myClients = new ArrayList<Cliente> ();
 		for (Entry<String, Cliente> entry : ImportClienti.entrySet()) {
 	        myClients.add(entry.getValue());
@@ -79,17 +82,15 @@ public class ClientDisplay extends mainView{
 		ClientList.setBounds(6, 26, 438, 215);
 		frame.getContentPane().add(ClientList);
 		
+		
 		//* ACTIONS*//
 		
 		btnNewClient.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RegistrazioneCliente.main(null);
 			}
-		});
 		
-		
-//		public JList refreshMetod() {
-//			return null;
-//		}
+			});
 	}
+
 }
