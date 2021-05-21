@@ -36,6 +36,8 @@ public class RubricaClienti {
 	public HashMap<String, Cliente> exportClients(){
 		return clienti;
 		
+		
+		
 	}
 	
 	public void getCliente(String nome,int pIva) {
