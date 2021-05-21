@@ -6,9 +6,8 @@ import java.util.Map.Entry;
 public class RubricaClienti {
 		public HashMap<String, Cliente> clienti = new HashMap();
 
-		public RubricaClienti(HashMap<String, Cliente> clienti) {
+		public RubricaClienti() {
 		super();
-		clienti = clienti;
 		initalizeClients();
 	}
 
@@ -30,16 +29,20 @@ public class RubricaClienti {
 		for (Entry<String, Cliente> entry : clienti.entrySet()) {
 	        System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
 	    }
+	
 	}
 	
 	
-	public HashMap<String, Cliente> exportClients(){
+	
+	
+	public HashMap<String, Cliente> getClienti() {
 		return clienti;
-		
-		
-		
 	}
-	
+
+	public void setClienti(HashMap<String, Cliente> clienti) {
+		this.clienti = clienti;
+	}
+
 	public void getCliente(String nome,int pIva) {
 		clienti.get(nome);
 	}

@@ -19,7 +19,6 @@ import java.awt.event.ActionListener;
 public class RegistrazioneCliente extends mainView {
 
 	private JFrame frame;
-	RubricaClienti myClientsTmp = new RubricaClienti(clienti);
 
 	/**
 	 * Launch the application.
@@ -39,7 +38,6 @@ public class RegistrazioneCliente extends mainView {
 
 	public RegistrazioneCliente(JFrame frame) {
 		this.frame = frame;
-		this.MyClienti = myClientsTmp;
 	}
 
 	/**
@@ -131,6 +129,7 @@ public class RegistrazioneCliente extends mainView {
 				String CodeClient = denominazione.substring(0, 3);
 				
 				clientRegister(clientTmp, CodeClient);
+				
 			}
 		});
 		

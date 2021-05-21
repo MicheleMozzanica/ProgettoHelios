@@ -26,10 +26,10 @@ public class Magazzino {
 		myProducts.add(myProd2);
 		myProducts.add(myProd3);
 		
-		for(Prodotto tmpProd : myProducts)
-		{
-			System.out.println(tmpProd.toString());
-		}
+//		for(Prodotto tmpProd : myProducts)
+//		{
+//			System.out.println(tmpProd.toString());
+//		}
 	
 	}
 

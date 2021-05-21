@@ -1,10 +1,13 @@
 package helios.core;
 
 import java.awt.EventQueue;
+import java.awt.List;
 
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
+import javax.swing.ListModel;
 import javax.swing.JLabel;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -17,13 +20,7 @@ public class ClientDisplay extends mainView{
 
 	private JFrame frame;
 	public HashMap<String, Cliente> ImportClienti = new HashMap();
-	
-	
-
-	public ClientDisplay(JFrame frame, RubricaClienti myRubricaClienti) {
-		myRubricaClienti = this.MyClienti;
-		this.frame = frame;	
-	}
+	ArrayList<Cliente> myClients = new ArrayList<Cliente> ();
 
 	/**
 	 * Launch the application.
@@ -69,20 +66,12 @@ public class ClientDisplay extends mainView{
 		
 		JButton RefreshButton = new JButton("Refresh");
 		
+		
 		RefreshButton.setBounds(16, 243, 117, 29);
 		frame.getContentPane().add(RefreshButton);
 		
-		
-		ImportClienti = MyClienti.exportClients();
-		ArrayList<Cliente> myClients = new ArrayList<Cliente> ();
-		for (Entry<String, Cliente> entry : ImportClienti.entrySet()) {
-	        myClients.add(entry.getValue());
-	    }
-		JList ClientList = new JList(myClients.toArray());
-		ClientList.setBounds(6, 26, 438, 215);
-		frame.getContentPane().add(ClientList);
-		
-		
+		initializeList();
+			
 		//* ACTIONS*//
 		
 		btnNewClient.addActionListener(new ActionListener() {
@@ -91,6 +80,26 @@ public class ClientDisplay extends mainView{
 			}
 		
 			});
+		
+		RefreshButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				initializeList();
+				
+			}
+		});
+	}
+
+	private void initializeList() {
+		ImportClienti = MyClienti.getClienti();
+		for (Entry<String, Cliente> entry : ImportClienti.entrySet()) {
+	        myClients.add(entry.getValue());
+	    }
+		for(int i = 0; i < ImportClienti.size();i++) {
+		System.out.println(ImportClienti.get(i).toString());
+	    }
+		JList ClientList = new JList(myClients.toArray());
+		ClientList.setBounds(6, 26, 438, 215);
+		frame.getContentPane().add(ClientList);		
 	}
 
 }
