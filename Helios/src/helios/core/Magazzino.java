@@ -22,7 +22,7 @@ public class Magazzino {
 
 	public void initializeProdotto() {
 		
-		myProducts.add(myProd1);
+		myProducts.add(myProd1); //TESTER PRODUCTS
 		myProducts.add(myProd2);
 		myProducts.add(myProd3);
 		

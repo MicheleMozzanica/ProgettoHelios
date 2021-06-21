@@ -16,11 +16,4 @@ public class FattureFornitori extends Fatture{
 		this.iva = iva;
 	}
 	
-	public HashMap<nFattura, Fornitore> fatFornitori;
-	
-	
-	public void putFattura(int nFattura, String prodotto) {
-		fatFornitori.put(nFattura, fornitore);
-	}
-	
 }

@@ -1,21 +1,23 @@
 package helios.core;
 
+import java.util.ArrayList;
+
 public class FattureClienti extends Fatture {
 
-	public String prodotto;
-	public double prezzo;
-	public int iva = 22;
+	public ArrayList<Prodotto> prodotto = new ArrayList();
+	public double totale = 0;
+	public double iva = 0.22;
+	int codCliente;
 	 
 	
-	public FattureClienti(int nFattura, int codCliente, String prodotto, double prezzo, int iva) {
+	public FattureClienti(int nFattura, int codCliente, double totale,  ArrayList<Prodotto> prodotto1) {
 		super(nFattura, codCliente);
-		this.prodotto = prodotto;
-		this.prezzo = prezzo;
-		this.iva = iva;
-	}
+		this.totale = totale;
+		this.prodotto = prodotto1;
+		}
 	
 	
-	
+
 	
 
 }

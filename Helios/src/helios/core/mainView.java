@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.awt.event.ActionEvent;
 
@@ -20,6 +21,7 @@ public class mainView {
 	Magazzino myMagazzino = new Magazzino("gino");
 	RubricaClienti MyClienti = new RubricaClienti();
 	RubricaFornitori MyFornitori = new RubricaFornitori();
+	Gestionale MyGestionale = new Gestionale();
 //	
 //	public ImageIcon myImage = new ImageIcon(getClass().getResource());
 	/**
@@ -27,7 +29,7 @@ public class mainView {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+			public void run() {				
 				try {
 					mainView window = new mainView();
 					window.frame.setVisible(true);
@@ -99,6 +101,15 @@ public class mainView {
 			public void actionPerformed(ActionEvent e) {
 				ProductsDisplay displayMagazzino = new ProductsDisplay();
 				displayMagazzino.main(null);
+			}
+		});
+		
+		
+		
+		btnOpenRegistraFattura.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Display_FattureEmesse displayFattureEmesse = new Display_FattureEmesse();
+				displayFattureEmesse.main(null);
 			}
 		});
 
