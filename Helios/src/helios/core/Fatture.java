@@ -6,7 +6,7 @@ public class Fatture {
 	
 	int nFattura;
 	
-	public Fatture(int nFattura, int codCliente) {
+	public Fatture(int nFattura) {
 		this.nFattura = nFattura;
 	}
 	

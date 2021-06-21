@@ -7,7 +7,7 @@ public class Gestionale {
 	ArrayList <FattureClienti> FattureEmesse = new ArrayList();
 	ArrayList <FattureFornitori> FattureRicevute = new ArrayList();	
 	
-	public void AddFatt(int nFattura, int codCliente, double totale,  ArrayList<Prodotto> prodotto1){ //aggiunge una nuova fattura
+	public void AddFatt(int nFattura, String clientCode, double totale,  ArrayList<Prodotto> prodotto1){ //aggiunge una nuova fattura
 //		nFattura = 4; //in input
 //		codCliente = 12; //in input
 //		Prodotto myProd1 = new Prodotto("prod1",1,1,22);
@@ -22,7 +22,7 @@ public class Gestionale {
 //		}
 //		totale = totale * (1+iva); //Totale con iva
 //		System.out.println("Totale fattura: " + totale + "€");
-		FattureClienti MyFatTemp = new FattureClienti(nFattura, codCliente,totale,prodotto1);
+		FattureClienti MyFatTemp = new FattureClienti(nFattura, clientCode,totale,prodotto1);
 		FattureEmesse.add(MyFatTemp);
 		
 		for(int i = 0; i<FattureEmesse.size();i++)
