@@ -108,14 +108,21 @@ public class mainView {
 		
 		btnOpenRegistraFattura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Display_FattureEmesse displayFattureEmesse = new Display_FattureEmesse();
-				displayFattureEmesse.main(null);
+				Display_FattureRicevute.main(null);
 			}
 		});
 
 		btnOpenClienti.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ClientDisplay.main(null);
+			}
+		});
+		
+		
+		btnOpenEmettiFattura.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					Display_FattureEmesse.main(null);
+
 			}
 		});
 	}
