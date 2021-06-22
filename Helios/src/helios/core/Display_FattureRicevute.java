@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 
-public class Display_FattureEmesse extends Gestionale{
+public class Display_FattureRicevute extends Gestionale{
 
 	private JFrame frame;
 	private JTextField textNFattura;
@@ -40,7 +40,7 @@ public class Display_FattureEmesse extends Gestionale{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Display_FattureEmesse window = new Display_FattureEmesse();
+					Display_FattureRicevute window = new Display_FattureRicevute();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,7 +52,7 @@ public class Display_FattureEmesse extends Gestionale{
 	/**
 	 * Create the application.
 	 */
-	public Display_FattureEmesse() {
+	public Display_FattureRicevute() {
 		initialize();
 	}
 
@@ -65,8 +65,8 @@ public class Display_FattureEmesse extends Gestionale{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblFattureEmesse = new JLabel("Crea una fattura");
-		lblFattureEmesse.setBounds(180, 6, 101, 16);
+		JLabel lblFattureEmesse = new JLabel("Registra una fattura");
+		lblFattureEmesse.setBounds(163, 6, 124, 16);
 		lblFattureEmesse.setVerticalAlignment(SwingConstants.TOP);
 		frame.getContentPane().add(lblFattureEmesse);
 		
@@ -145,19 +145,15 @@ public class Display_FattureEmesse extends Gestionale{
 		lblNFattura.setBounds(6, 23, 66, 16);
 		frame.getContentPane().add(lblNFattura);
 		
-		JLabel lblCodcliente = new JLabel("CodCliente");
+		JLabel lblCodcliente = new JLabel("Fornitore");
 		lblCodcliente.setVerticalAlignment(SwingConstants.TOP);
-		lblCodcliente.setBounds(331, 23, 77, 16);
+		lblCodcliente.setBounds(387, 23, 57, 16);
 		frame.getContentPane().add(lblCodcliente);
 		
 		textCodCliente = new JTextField();
 		textCodCliente.setColumns(10);
-		textCodCliente.setBounds(331, 39, 57, 26);
+		textCodCliente.setBounds(387, 39, 57, 26);
 		frame.getContentPane().add(textCodCliente);
-		
-		JButton btnNewButton = new JButton("Go");
-		btnNewButton.setBounds(400, 39, 44, 29);
-		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnCalcolaTotale = new JButton("Calcola Totale");
 		
@@ -243,7 +239,7 @@ public class Display_FattureEmesse extends Gestionale{
 					ProdottiFattura.add(tempProd);
 				}
 				double totaleFattura = Double.parseDouble(lblTotaleFattura_1.getText());
-				AddFattEmesse(nFattura,ClientCode,totaleFattura,ProdottiFattura); //VAI A REGISTRARE LA FATTURA IN GESTIONALE
+				AddFattRicevute(nFattura,ClientCode,totaleFattura,ProdottiFattura); //VAI A REGISTRARE LA FATTURA IN GESTIONALE
 				
 				textProd1.setText("");
 				textProd2.setText("");
