@@ -9,8 +9,8 @@ public class FattureFornitori extends Fatture{
 	public int iva = 22;
 	Fornitore fornitore;
 	
-	public FattureFornitori(int nFattura, int codCliente, String prodotto, double prezzo, int iva) {
-		super(nFattura, codCliente);
+	public FattureFornitori(String nFattura, int codCliente, String prodotto, double prezzo, int iva) {
+		super(nFattura);
 		this.prodotto = prodotto;
 		this.prezzo = prezzo;
 		this.iva = iva;

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Fatture {
 	
-	int nFattura;
+	String nFattura;
 	
-	public Fatture(int nFattura) {
+	public Fatture(String nFattura) {
 		this.nFattura = nFattura;
 	}
 	

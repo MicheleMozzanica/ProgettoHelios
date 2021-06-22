@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
 public class Display_FattureEmesse extends Gestionale{
 
 	private JFrame frame;
-	private JTextField textField;
+	private JTextField textNFattura;
 	private JTextField textProd1;
 	private JTextField textProd2;
 	private JTextField textProd3;
@@ -70,10 +70,10 @@ public class Display_FattureEmesse extends Gestionale{
 		lblFattureEmesse.setVerticalAlignment(SwingConstants.TOP);
 		frame.getContentPane().add(lblFattureEmesse);
 		
-		textField = new JTextField();
-		textField.setBounds(6, 39, 57, 26);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		textNFattura = new JTextField();
+		textNFattura.setBounds(6, 39, 57, 26);
+		frame.getContentPane().add(textNFattura);
+		textNFattura.setColumns(10);
 		
 		textProd1 = new JTextField();
 		textProd1.setBounds(16, 77, 364, 26);
@@ -175,15 +175,57 @@ public class Display_FattureEmesse extends Gestionale{
 		
 		btnRegistraFattura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int nFattura = Integer.parseInt(lblNFattura.getText());
+				String nFattura = textNFattura.getText();
 				String ClientCode = textCodCliente.getText();
 				ArrayList<Prodotto> ProdottiFattura = new ArrayList();
 				Vector<Integer> prices = new Vector<>(); 
-				prices.add(Integer.parseInt(textPrice1.getText()));
-				prices.add(Integer.parseInt(textPrice2.getText()));
-				prices.add(Integer.parseInt(textPrice3.getText()));
-				prices.add(Integer.parseInt(textPrice4.getText()));
-				prices.add(Integer.parseInt(textPrice5.getText()));
+				
+				
+				if(textPrice1.getText().equals(""))
+				{
+					prices.add(0);
+				}
+				else
+				{
+					prices.add(Integer.parseInt(textPrice1.getText()));
+				}
+				
+				if(textPrice2.getText().equals(""))
+				{
+					prices.add(0);
+				}
+				else
+				{
+					prices.add(Integer.parseInt(textPrice2.getText()));
+				}
+				
+				if(textPrice3.getText().equals(""))
+				{
+					prices.add(0);
+				}
+				else
+				{
+					prices.add(Integer.parseInt(textPrice3.getText()));
+				}
+				
+				if(textPrice4.getText().equals(""))
+				{
+					prices.add(0);
+				}
+				else
+				{
+					prices.add(Integer.parseInt(textPrice4.getText()));
+				}
+				
+				if(textPrice5.getText().equals(""))
+				{
+					prices.add(0);
+				}
+				else
+				{
+					prices.add(Integer.parseInt(textPrice5.getText()));
+				}
+				
 				Vector<String> names = new Vector<>(); 
 				names.add(textProd1.getText());
 				names.add(textProd2.getText());
@@ -200,9 +242,24 @@ public class Display_FattureEmesse extends Gestionale{
 					Prodotto tempProd = new Prodotto(nome,prezzo,quantity,iva);
 					ProdottiFattura.add(tempProd);
 				}
-				int totaleFattura = Integer.parseInt(lblTotaleFattura_1.getText());
+				double totaleFattura = Double.parseDouble(lblTotaleFattura_1.getText());
 				AddFatt(nFattura,ClientCode,totaleFattura,ProdottiFattura); //VAI A REGISTRARE LA FATTURA IN GESTIONALE
 				
+				textProd1.setText("");
+				textProd2.setText("");
+				textProd3.setText("");
+				textProd4.setText("");
+				textProd5.setText("");
+				textPrice1.setText("");
+				textPrice2.setText("");
+				textPrice3.setText("");
+				textPrice4.setText("");
+				textPrice5.setText("");
+				textCodCliente.setText("");
+				textNFattura.setText("");
+				lblTotaleFattura_1.setText("");
+
+
 				
 			}
 		});
@@ -210,23 +267,58 @@ public class Display_FattureEmesse extends Gestionale{
 		
 		btnCalcolaTotale.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-							tempString = textPrice1.getText();
+				
+				
+				tempString = textPrice1.getText();
+						if(tempString.equals("")) {
+							tempnum = 0;
+							}
+						else {
 							tempnum = Integer.parseInt(tempString);
-							totTemp += tempnum;
-							tempString = textPrice2.getText();
-							tempnum = Integer.parseInt(tempString);
-							totTemp += tempnum;
-							tempString = textPrice3.getText();
-							tempnum = Integer.parseInt(tempString);
-							totTemp += tempnum;
-							tempString = textPrice4.getText();
-							tempnum = Integer.parseInt(tempString);
-							totTemp += tempnum;
-							tempString = textPrice5.getText();
-							tempnum = Integer.parseInt(tempString);
+						}
 							totTemp += tempnum;
 							
-							totTemp= totTemp*1.22;
+				tempString = textPrice2.getText();
+							if(tempString.equals("")) {
+								tempnum = 0;
+								}
+							else {
+								tempnum = Integer.parseInt(tempString);
+							}
+								totTemp += tempnum;
+							
+				tempString = textPrice3.getText();
+								if(tempString.equals("")) {
+									tempnum = 0;
+									}
+								else {
+									tempnum = Integer.parseInt(tempString);
+								}
+									totTemp += tempnum;
+							
+				tempString = textPrice4.getText();
+									if(tempString.equals("")) {
+										tempnum = 0;
+										}
+									else {
+										tempnum = Integer.parseInt(tempString);
+									}
+										totTemp += tempnum;
+										
+										
+				tempString = textPrice5.getText();
+										if(tempString.equals("")) {
+											tempnum = 0;
+											}
+										else {
+											tempnum = Integer.parseInt(tempString);
+										}
+											totTemp += tempnum;
+											
+							
+							totTemp = totTemp*1.22;
+						    totTemp = Math.round(totTemp*100.0)/100.0;
+
 							tempString = Double.toString(totTemp);
 							lblTotaleFattura_1.setText(tempString);
 				

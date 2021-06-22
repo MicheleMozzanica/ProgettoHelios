@@ -10,7 +10,7 @@ public class FattureClienti extends Fatture {
 	String codCliente;
 	 
 	
-	public FattureClienti(int nFattura, String codCliente, double totale,  ArrayList<Prodotto> prodotto1) {
+	public FattureClienti(String nFattura, String codCliente, double totale,  ArrayList<Prodotto> prodotto1) {
 		super(nFattura);
 		this.codCliente = codCliente;
 		this.totale = totale;
