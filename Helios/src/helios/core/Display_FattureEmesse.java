@@ -264,8 +264,13 @@ public class Display_FattureEmesse extends Gestionale{
 				textCodCliente.setText("");
 				textNFattura.setText("");
 				lblTotaleFattura_1.setText("");
-
-
+				
+				try {
+					saveDatabaseFattureEmesse();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				
 			}
 		});
@@ -332,4 +337,6 @@ public class Display_FattureEmesse extends Gestionale{
 			}
 		});
 	}
+	
+	
 }

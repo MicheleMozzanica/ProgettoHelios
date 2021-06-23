@@ -40,5 +40,34 @@ public class Gestionale{
 			
 			
 		}
+		
+		public void saveDatabaseFattureEmesse() throws IOException {
+			FileWriter writer = new FileWriter("FattEmesse.csv");
+			for(int i = 0 ; i <FattureEmesse.size(); i++) {
+			
+			
+			writer.append(FattureEmesse.get(i).nFattura);
+			writer.append(',');
+			writer.append(FattureEmesse.get(i).Codice);
+			writer.append(',');
+			
+			for(int j = 0 ; j<FattureEmesse.get(i).prodotto.size(); j++)
+			{
+				writer.append(FattureEmesse.get(i).prodotto.get(j).nome);
+				writer.append(',');
+				writer.append(Integer.toString(FattureEmesse.get(i).prodotto.get(j).price));
+				writer.append(',');
+			}
+			
+			writer.append(Double.toString(FattureEmesse.get(i).totale));
+			
+			writer.append('\n');
+
+			}
+			writer.flush();
+			writer.close();
+			
+			
+		}
 	
 }

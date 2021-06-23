@@ -131,7 +131,10 @@ public class mainView {
 			}
 		});		
 		
+		
+		
 		read("FattEmesse.csv");
+		
 		
 	}
 
@@ -182,11 +185,6 @@ public class mainView {
 			System.out.println("Error");
 		}
 	}
-		
-
-	
-	
-	
 	
 	
 }
