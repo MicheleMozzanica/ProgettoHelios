@@ -9,6 +9,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
@@ -243,7 +244,12 @@ public class Display_FattureEmesse extends Gestionale{
 					ProdottiFattura.add(tempProd);
 				}
 				double totaleFattura = Double.parseDouble(lblTotaleFattura_1.getText());
-				AddFattEmesse(nFattura,ClientCode,totaleFattura,ProdottiFattura); //VAI A REGISTRARE LA FATTURA IN GESTIONALE
+				try {
+					AddFattEmesse(nFattura,ClientCode,totaleFattura,ProdottiFattura);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} //VAI A REGISTRARE LA FATTURA IN GESTIONALE
 				
 				textProd1.setText("");
 				textProd2.setText("");

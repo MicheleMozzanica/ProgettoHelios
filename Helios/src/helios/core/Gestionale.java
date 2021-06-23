@@ -1,13 +1,14 @@
 package helios.core;
 
+import java.io.*;
 import java.util.ArrayList;
 
-public class Gestionale {
+public class Gestionale{
 	
 	ArrayList <FattureClienti> FattureEmesse = new ArrayList();
 	ArrayList <FattureFornitori> FattureRicevute = new ArrayList();	
 	
-	public void AddFattEmesse(String nFattura, String clientCode, double totale,  ArrayList<Prodotto> prodotto1){ //aggiunge una nuova fattura per clienti
+	public void AddFattEmesse(String nFattura, String clientCode, double totale,  ArrayList<Prodotto> prodotto1) throws IOException{ //aggiunge una nuova fattura per clienti
 		FattureClienti MyFatTemp = new FattureClienti(nFattura, clientCode,totale,prodotto1);
 		FattureEmesse.add(MyFatTemp);
 		
@@ -30,5 +31,14 @@ public class Gestionale {
 	
 
 }
+
+	
+	//WRITE DATABASE
+	
+		public void write(String nomeFile) {
+
+			
+			
+		}
 	
 }

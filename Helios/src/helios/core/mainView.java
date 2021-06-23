@@ -10,9 +10,10 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 import java.awt.event.ActionEvent;
 
 public class mainView {
@@ -46,15 +47,19 @@ public class mainView {
 
 	/**
 	 * Create the application.
+	 * @throws IOException 
+	 * @throws ClassNotFoundException 
 	 */
-	public mainView() {
+	public mainView() throws ClassNotFoundException, IOException {
 		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
+	 * @throws IOException 
+	 * @throws ClassNotFoundException 
 	 */
-	private void initialize() {
+	private void initialize() throws ClassNotFoundException, IOException {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -124,6 +129,64 @@ public class mainView {
 					Display_FattureEmesse.main(null);
 
 			}
-		});
+		});		
+		
+		read("FattEmesse.csv");
+		
 	}
+
+
+//READ FILE 
+	public void read(String nomeFile) throws ClassNotFoundException, IOException {
+		File tmpFile = new File	(nomeFile);
+		
+		if(!tmpFile.exists())
+		{
+			System.out.println("Creazione del file");
+			tmpFile.createNewFile();
+		}
+		else {
+			System.out.println("Existing File");
+		}
+		
+		
+		try{
+			BufferedReader reader=new BufferedReader(new FileReader(tmpFile));
+			String line=null;
+			while((line=reader.readLine())!=null){
+			boolean checker = true;
+			System.out.println(line);
+			Scanner s=new Scanner(line).useDelimiter(",");
+			if(s.hasNext()){
+				String nFattura =s.next();
+				String Codice = s.next();
+				ArrayList<Prodotto> tmpProdotto = new ArrayList<Prodotto>();
+				while(checker){
+					if(!s.hasNextDouble()) {
+				String nameP = s.next();
+				int priceP = s.nextInt();
+				//String nome, int quantity, int price, int iva
+				Prodotto prodottoTmp = new Prodotto(nameP,1,priceP,22);
+				tmpProdotto.add(prodottoTmp);
+					}
+					else {
+						checker = false;
+					}
+			}
+			double tmptotaleFattura=s.nextDouble();
+			MyGestionale.AddFattEmesse(nFattura,Codice,tmptotaleFattura,tmpProdotto);
+			}
+
+			}
+		}catch(Exception e){
+			System.out.println("Error");
+		}
+	}
+		
+
+	
+	
+	
+	
+	
 }
