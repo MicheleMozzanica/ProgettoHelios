@@ -9,6 +9,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
@@ -222,6 +223,17 @@ public class Display_FattureRicevute extends Gestionale{
 					prices.add(Integer.parseInt(textPrice5.getText()));
 				}
 				
+				
+				int counter = 0 ;
+				for(int i = 0; i < prices.size(); i++)
+				{
+					if(!(prices.get(i) == 0))
+					{
+					counter++;
+					}
+				}
+				
+				
 				Vector<String> names = new Vector<>(); 
 				names.add(textProd1.getText());
 				names.add(textProd2.getText());
@@ -229,18 +241,24 @@ public class Display_FattureRicevute extends Gestionale{
 				names.add(textProd4.getText());
 				names.add(textProd5.getText());
 				
-				for(int i = 0; i<5; i++)
+				for(int i = 0; i<counter; i++)
 				{
-					int quantity = 1;
-					int iva = 22;
 					String nome = names.get(i);
 					int prezzo = prices.get(i);
-					Prodotto tempProd = new Prodotto(nome,prezzo,quantity,iva);
+					Prodotto tempProd = new Prodotto(nome,prezzo);
 					ProdottiFattura.add(tempProd);
 				}
 				double totaleFattura = Double.parseDouble(lblTotaleFattura_1.getText());
-				AddFattRicevute(nFattura,ClientCode,totaleFattura,ProdottiFattura); //VAI A REGISTRARE LA FATTURA IN GESTIONALE
 				
+				FattureFornitori MyFatTemp = new FattureFornitori(nFattura, ClientCode, totaleFattura, ProdottiFattura);
+
+					try {
+						AddFattRicevute(MyFatTemp); //SALVA ANCHE IL DB
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} //ADD nuova fattura + salvataggio del database
+		
 				textProd1.setText("");
 				textProd2.setText("");
 				textProd3.setText("");
@@ -254,8 +272,6 @@ public class Display_FattureRicevute extends Gestionale{
 				textCodCliente.setText("");
 				textNFattura.setText("");
 				lblTotaleFattura_1.setText("");
-
-
 				
 			}
 		});

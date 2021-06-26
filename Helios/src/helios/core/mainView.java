@@ -14,6 +14,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.Stack;
+import java.util.Vector;
 import java.awt.event.ActionEvent;
 
 public class mainView {
@@ -22,33 +24,44 @@ public class mainView {
 	Magazzino myMagazzino = new Magazzino("gino");
 	RubricaClienti MyClienti = new RubricaClienti();
 	RubricaFornitori MyFornitori = new RubricaFornitori();
-	Gestionale MyGestionale = new Gestionale();
-//	
+	static Gestionale MyGestionale = new Gestionale();
+	//
 //	public ImageIcon myImage = new ImageIcon(getClass().getResource());
+
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
-			public void run() {				
+			public void run() {
+				try {
+					MyGestionale.loadFattureEmesse("FattEmesse.csv");
+					MyGestionale.loadFattureRicevute("FattRicevute.csv");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
 				try {
 					mainView window = new mainView();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			
+
 			}
 		});
 
 	}
-	
-	
 
 	/**
 	 * Create the application.
-	 * @throws IOException 
-	 * @throws ClassNotFoundException 
+	 * 
+	 * @throws IOException
+	 * @throws ClassNotFoundException
 	 */
 	public mainView() throws ClassNotFoundException, IOException {
 		initialize();
@@ -56,8 +69,9 @@ public class mainView {
 
 	/**
 	 * Initialize the contents of the frame.
-	 * @throws IOException 
-	 * @throws ClassNotFoundException 
+	 * 
+	 * @throws IOException
+	 * @throws ClassNotFoundException
 	 */
 	private void initialize() throws ClassNotFoundException, IOException {
 		frame = new JFrame();
@@ -66,7 +80,6 @@ public class mainView {
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(new JLabel(new ImageIcon("/Users/simonesaleri/Documents/GitHub/ProgettoHelios")));
 
-		
 //		JLabel ImageLabel = new JLabel(myImage);
 //		ImageLabel.setBounds(298, 50, 93, 16);
 //		frame.getContentPane().add(ImageLabel);
@@ -91,10 +104,14 @@ public class mainView {
 		JButton btnOpenClienti = new JButton("Clienti");
 		btnOpenClienti.setBounds(327, 243, 117, 29);
 		frame.getContentPane().add(btnOpenClienti);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("Helios Project");
 		lblNewLabel_1.setBounds(166, 25, 93, 16);
 		frame.getContentPane().add(lblNewLabel_1);
+
+		JButton btnSaveDatabase = new JButton("SALVA DATABASE");
+		btnSaveDatabase.setBounds(6, 242, 154, 29);
+		frame.getContentPane().add(btnSaveDatabase);
 
 		/**
 		 * Actions
@@ -108,9 +125,7 @@ public class mainView {
 				displayMagazzino.main(null);
 			}
 		});
-		
-		
-		
+
 		btnOpenRegistraFattura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Display_FattureRicevute.main(null);
@@ -122,69 +137,26 @@ public class mainView {
 				ClientDisplay.main(null);
 			}
 		});
-		
-		
+
 		btnOpenEmettiFattura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					Display_FattureEmesse.main(null);
+				Display_FattureEmesse.main(null);
 
 			}
-		});		
-		
-		
-		
-		read("FattEmesse.csv");
-		
-		
-	}
+		});
 
+		btnSaveDatabase.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					MyGestionale.save();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+	}
 
 //READ FILE 
-	public void read(String nomeFile) throws ClassNotFoundException, IOException {
-		File tmpFile = new File	(nomeFile);
-		
-		if(!tmpFile.exists())
-		{
-			System.out.println("Creazione del file");
-			tmpFile.createNewFile();
-		}
-		else {
-			System.out.println("Existing File");
-		}
-		
-		
-		try{
-			BufferedReader reader=new BufferedReader(new FileReader(tmpFile));
-			String line=null;
-			while((line=reader.readLine())!=null){
-			boolean checker = true;
-			System.out.println(line);
-			Scanner s=new Scanner(line).useDelimiter(",");
-			if(s.hasNext()){
-				String nFattura =s.next();
-				String Codice = s.next();
-				ArrayList<Prodotto> tmpProdotto = new ArrayList<Prodotto>();
-				while(checker){
-					if(!s.hasNextDouble()) {
-				String nameP = s.next();
-				int priceP = s.nextInt();
-				//String nome, int quantity, int price, int iva
-				Prodotto prodottoTmp = new Prodotto(nameP,1,priceP,22);
-				tmpProdotto.add(prodottoTmp);
-					}
-					else {
-						checker = false;
-					}
-			}
-			double tmptotaleFattura=s.nextDouble();
-			MyGestionale.AddFattEmesse(nFattura,Codice,tmptotaleFattura,tmpProdotto);
-			}
 
-			}
-		}catch(Exception e){
-			System.out.println("Error");
-		}
-	}
-	
-	
 }

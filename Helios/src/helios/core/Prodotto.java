@@ -5,17 +5,16 @@ import java.io.Serializable;
 public class Prodotto implements Serializable{
 	
 	public String nome;
-	public int quantity, price;
+	public int price;
 	
-	public Prodotto(String nome, int quantity, int price, int iva) {
+	public Prodotto(String nome,int price) {
 		this.nome = nome;
-		this.quantity = quantity;
 		this.price = price;
 	}
 
 	@Override
 	public String toString() {
-		return " --> Name: " + nome + " --> Quantity: " + quantity + " --> Price: " + price + " € " + "--> Iva: ";
+		return " --> Name: " + nome + " --> Price: " + price + " € ";
 	}
 	
 	

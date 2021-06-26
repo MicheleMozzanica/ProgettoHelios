@@ -8,9 +8,9 @@ public class Magazzino {
 	public ArrayList<Prodotto> myProducts = new ArrayList();
 	int nItems;
 	String nameOfMagazzino;
-	Prodotto myProd1 = new Prodotto("prod1",1,1,22);
-	Prodotto myProd2 = new Prodotto("prod2",2,4,22);
-	Prodotto myProd3 = new Prodotto("prod3",2,16,22);
+	Prodotto myProd1 = new Prodotto("prod1",1);
+	Prodotto myProd2 = new Prodotto("prod2",4);
+	Prodotto myProd3 = new Prodotto("prod3",16);
 	
 	
 	public Magazzino(String nameOfMagazzino) {
