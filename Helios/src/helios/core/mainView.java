@@ -21,9 +21,9 @@ import java.awt.event.ActionEvent;
 public class mainView {
 
 	private JFrame frame;
-	Magazzino myMagazzino = new Magazzino("gino");
+	static Magazzino myMagazzino = new Magazzino("gino");
 	RubricaClienti MyClienti = new RubricaClienti();
-	RubricaFornitori MyFornitori = new RubricaFornitori();
+	static RubricaFornitori MyFornitori = new RubricaFornitori();
 	static Gestionale MyGestionale = new Gestionale();
 	static OrderManager MyOrderManager = new OrderManager();
 	//
@@ -32,6 +32,8 @@ public class mainView {
 	/**
 	 * Launch the application.
 	 */
+	
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -143,6 +145,12 @@ public class mainView {
 		btnOpenClienti.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ClientDisplay.main(null);
+				try {
+					MyClienti.initalizeClients();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+				System.out.println("Errore nell'inizializzazione dei clienti");
+				}
 			}
 		});
 
@@ -160,6 +168,8 @@ public class mainView {
 			}
 		});
 
+
+		
 		btnSaveDatabase.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {

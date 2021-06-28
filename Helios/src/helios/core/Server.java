@@ -25,24 +25,24 @@ public class Server {
 				BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));) {
 			System.out.printf("Server Info: %s [%d] \n", server.getInetAddress(), server.getLocalPort());
 			System.out.printf("Client Connesso: %s [%d] \n", client.getInetAddress(), client.getPort());
-			out.println("Scegliere un operazione da effettuare: \n1. Mandare un messaggio \n2.Effettua un ordine");
+			out.println("Vuole effettuare un ordine? [Y/N] - 'quit per uscire'");
+
 			String choose;
 
 			while ((choose = in.readLine()) != null) {
-				out.println("Scegliere un operazione da effettuare: \n1. Mandare un messaggio \n2.Effettua un ordine");
 				System.out.printf("Richiesta ricevuta", choose);
-				if ("quit".equals(choose)) {
+				if ("quit".equals(choose) || "N".equals(choose)) {
 					System.out.println("Quitting...");
 					break;
-				} else if (choose.equals("1")) {
-					String msgTmp = sendMessaggio(client, out, in); // immagazzino il messaggio
-					out.println("Il messaggio è stato recapitato, eccolo di seguito: \n" + msgTmp);
-				} else if (choose.equals("2")) {
+				} else if (!(choose.equals("quit") || "N".equals(choose))) {
+					out.println("In questa pagina può effettuare un ordine");
 					sendOrdine(client, out, in);
 					myOrderManager.saveDatabaseOrders();
+					myOrderManager.loadOrders("OrderDatabase.csv");
 				} else {
-					out.println("Non è possibile scegliere un opzione al di fuori della 1 e 2.");
+					out.println("Non è possibile scegliere un opzione al di fuori di Y/N/quit.");
 				}
+				out.println("Vuole effettuare un altro ordine? [Y/N] - 'quit per uscire'");
 
 			}
 		} catch (IOException e) {
@@ -81,10 +81,10 @@ public class Server {
 
 		out.println("Quali prodotti vuole ordinare?(Scrivere 'nop' quando non si vuole più inserire prodotti)\n");
 
-		String nameProd = "start"; //!!!!!!!!!!!!!!!!!!!!!
 		// Prodotti ordine
+		String nameProd = "not null";
 		try {
-			while (!((nameProd = inOrder.readLine()).equals("nop"))){
+			while (!((nameProd.equals(null)))){
 				out.println("Nome del prodotto:");
 				nameProd = inOrder.readLine();
 				if (nameProd.equals("nop")) {
@@ -111,18 +111,6 @@ public class Server {
 		out.println("Nuovo Ordine effettuato #" + nOrder);
 
 
-	}
-
-	public String sendMessaggio(Socket socketClient, PrintWriter out, BufferedReader inMex) {
-		String message = new String();
-		try {
-			out.println("Scrivi un messaggio\n");
-			message = inMex.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			out.println("Errore nell'invio del messaggio");
-		}
-		return message;
 	}
 
 }
