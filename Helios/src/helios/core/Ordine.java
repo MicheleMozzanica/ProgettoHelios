@@ -6,9 +6,9 @@ public class Ordine {
 
 	
 	
-	ArrayList<Prodotto> productsOnOrder = new ArrayList<Prodotto>();
+	ArrayList<ProdottoOrdine> productsOnOrder = new ArrayList<ProdottoOrdine>();
 	Cliente clientOnOrder;
-	public Ordine(ArrayList<Prodotto> productsOnOrder, Cliente clientOnOrder) {
+	public Ordine(ArrayList<ProdottoOrdine> productsOnOrder, Cliente clientOnOrder) {
 		this.productsOnOrder = productsOnOrder;
 		this.clientOnOrder = clientOnOrder;
 	}

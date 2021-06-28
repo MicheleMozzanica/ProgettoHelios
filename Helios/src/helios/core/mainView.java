@@ -25,6 +25,7 @@ public class mainView {
 	RubricaClienti MyClienti = new RubricaClienti();
 	RubricaFornitori MyFornitori = new RubricaFornitori();
 	static Gestionale MyGestionale = new Gestionale();
+	static OrderManager MyOrderManager = new OrderManager();
 	//
 //	public ImageIcon myImage = new ImageIcon(getClass().getResource());
 
@@ -37,6 +38,8 @@ public class mainView {
 				try {
 					MyGestionale.loadFattureEmesse("FattEmesse.csv");
 					MyGestionale.loadFattureRicevute("FattRicevute.csv");
+					MyOrderManager.loadOrders("OrderDatabase.csv");
+					
 		
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block

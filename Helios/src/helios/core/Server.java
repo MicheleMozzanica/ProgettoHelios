@@ -11,6 +11,7 @@ public class Server {
 
 	int port = 1234;
 
+	public Server() {
 		initialize();
 	}
 
@@ -28,6 +29,7 @@ public class Server {
 			String choose;
 
 			while ((choose = in.readLine()) != null) {
+				out.println("Scegliere un operazione da effettuare: \n1. Mandare un messaggio \n2.Effettua un ordine");
 				System.out.printf("Richiesta ricevuta", choose);
 				if ("quit".equals(choose)) {
 					System.out.println("Quitting...");
@@ -37,6 +39,7 @@ public class Server {
 					out.println("Il messaggio è stato recapitato, eccolo di seguito: \n" + msgTmp);
 				} else if (choose.equals("2")) {
 					sendOrdine(client, out, in);
+					myOrderManager.saveDatabaseOrders();
 				} else {
 					out.println("Non è possibile scegliere un opzione al di fuori della 1 e 2.");
 				}
@@ -52,7 +55,7 @@ public class Server {
 	}
 
 	public void sendOrdine(Socket socketClient, PrintWriter out, BufferedReader inOrder) {
-		ArrayList<Prodotto> tmpProds = new ArrayList<Prodotto>();
+		ArrayList<ProdottoOrdine> tmpProds = new ArrayList<ProdottoOrdine>();
 		Cliente clientTmp = new Cliente("basic", "basic", "basic", "basic");
 		out.println("I suoi dati anagrafici:\n");
 		// Dati cliente
@@ -78,7 +81,7 @@ public class Server {
 
 		out.println("Quali prodotti vuole ordinare?(Scrivere 'nop' quando non si vuole più inserire prodotti)\n");
 
-		String nameProd; //!!!!!!!!!!!!!!!!!!!!!
+		String nameProd = "start"; //!!!!!!!!!!!!!!!!!!!!!
 		// Prodotti ordine
 		try {
 			while (!((nameProd = inOrder.readLine()).equals("nop"))){
@@ -90,7 +93,7 @@ public class Server {
 				}
 				out.println("Quantità del prodotto:");
 				int quantity = Integer.parseInt(inOrder.readLine());
-				Prodotto tmpProd = new Prodotto(nameProd, quantity);
+				ProdottoOrdine tmpProd = new ProdottoOrdine(nameProd, quantity);
 				tmpProds.add(tmpProd);
 			} 
 		} catch (IOException e) {
@@ -105,6 +108,8 @@ public class Server {
 		Ordine newOrder = new Ordine(tmpProds, clientTmp);
 		System.out.println("Nuovo Ordine ricevuto #" + nOrder + "da " + clientTmp.denominazione);
 		myOrderManager.addNewOrder(newOrder, nOrder);
+		out.println("Nuovo Ordine effettuato #" + nOrder);
+
 
 	}
 
