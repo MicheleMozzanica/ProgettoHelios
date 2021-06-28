@@ -37,6 +37,7 @@ public class mainView {
 				try {
 					MyGestionale.loadFattureEmesse("FattEmesse.csv");
 					MyGestionale.loadFattureRicevute("FattRicevute.csv");
+		
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -109,9 +110,13 @@ public class mainView {
 		lblNewLabel_1.setBounds(166, 25, 93, 16);
 		frame.getContentPane().add(lblNewLabel_1);
 
-		JButton btnSaveDatabase = new JButton("SALVA DATABASE");
+		JButton btnSaveDatabase = new JButton("Save Database");
 		btnSaveDatabase.setBounds(6, 242, 154, 29);
 		frame.getContentPane().add(btnSaveDatabase);
+		
+		JButton btnStartServer = new JButton("Start Server ");
+		btnStartServer.setBounds(327, 0, 117, 29);
+		frame.getContentPane().add(btnStartServer);
 
 		/**
 		 * Actions
@@ -144,6 +149,13 @@ public class mainView {
 
 			}
 		});
+		
+		
+		btnStartServer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Server myServer = new Server();
+			}
+		});
 
 		btnSaveDatabase.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -156,7 +168,4 @@ public class mainView {
 			}
 		});
 	}
-
-//READ FILE 
-
 }

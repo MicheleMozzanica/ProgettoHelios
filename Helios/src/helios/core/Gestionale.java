@@ -11,12 +11,10 @@ public class Gestionale {
 
 	public static void AddFattEmesse(FattureClienti myFatClienti) throws IOException{ // aggiunge una nuova fattura per clienti
 		FattureEmesse.add(myFatClienti);
-		showFattureEmesse();
 	}
 
 	public static void AddFattRicevute(FattureFornitori MyFatFornitori) throws IOException{ // aggiunge una nuova fatture fornitore																										// fattu																									// d																									// fornitori
 		FattureRicevute.add(MyFatFornitori);
-		showFattureRicevute();
 	}
 	
 	public static void save() throws IOException {
