@@ -181,5 +181,11 @@ public class mainView {
 				}
 			}
 		});
+		
+		btnOpenGestioneOrdini.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Orders_Display.main(null);
+			}
+		});
 	}
 }

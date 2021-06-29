@@ -17,6 +17,8 @@ public class ClientDisplay extends RubricaClienti {
 	private JTable ClientTable;
 	private JLabel lblClienti;
 	private JButton btnRefresh;
+	private JLabel lblCodice;
+	private JLabel lblDenominazione;
 
 	/**
 	 * Launch the application.
@@ -51,7 +53,7 @@ public class ClientDisplay extends RubricaClienti {
 		frame.getContentPane().setLayout(null);
 
 		ClientTable = new JTable(clienti.size(), 2);
-		ClientTable.setBounds(6, 35, 438, 204);
+		ClientTable.setBounds(6, 42, 438, 197);
 		frame.getContentPane().add(ClientTable);
 
 		JButton btnNewButton = new JButton("Registra nuovo cliente");
@@ -71,6 +73,14 @@ public class ClientDisplay extends RubricaClienti {
 
 		btnRefresh.setBounds(6, 243, 117, 29);
 		frame.getContentPane().add(btnRefresh);
+		
+		lblCodice = new JLabel("Codice");
+		lblCodice.setBounds(6, 20, 43, 16);
+		frame.getContentPane().add(lblCodice);
+		
+		lblDenominazione = new JLabel("Denominazione");
+		lblDenominazione.setBounds(272, 20, 98, 16);
+		frame.getContentPane().add(lblDenominazione);
 
 		initializeTable();
 
