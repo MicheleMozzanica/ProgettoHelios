@@ -14,11 +14,17 @@ public class RubricaClienti {
 	
 	public static HashMap<String, Cliente> clienti = new HashMap();
 
-	public RubricaClienti() throws IOException {
-		initalizeClients();
+	public RubricaClienti(){
+		
+		try {
+			initalizeClients();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
-	public static void initalizeClients() throws IOException {
+	public void initalizeClients() throws IOException {
 		String nameFile = "ClientsDatabase.csv";
 		File tmpFile = new File(nameFile);
 
@@ -35,13 +41,13 @@ public class RubricaClienti {
 			while ((line = reader.readLine()) != null) {
 				boolean checker = true;
 				Scanner s = new Scanner(line).useDelimiter(",");
-				if (s.hasNext()) { // ORDINE DELLE STRINGHE = NORDINE ; DENOMINAZIONE; SEDE LEGALE; PIVA; EMAIL ;
+				if (s.hasNext()) { // ORDINE DELLE STRINGHE = CodeClient ; DENOMINAZIONE; SEDE LEGALE; PIVA; EMAIL ;
 									// NOME PRODOTTO; QUANTITA PRODOTTO
+					String code = s.next();
 					String Denominazione = s.next();
 					String SedeLegale = s.next();
 					String pIva = s.next();
 					String Email = s.next();
-					String code = Denominazione.substring(0, 3);
 					Cliente clienteTmp = new Cliente(Denominazione, SedeLegale, pIva, Email);
 					addCliente(code, clienteTmp);
 				}
@@ -59,41 +65,25 @@ public class RubricaClienti {
 		clienti.put(Code, clientTmp);
 
 		for (Entry<String, Cliente> entry : clienti.entrySet()) {
-			System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
+			System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue() + "\n");
 		}
 
 	}
-
-	public HashMap<String, Cliente> getClienti() {
-		return clienti;
-	}
-
-	public void setClienti(HashMap<String, Cliente> clienti) {
-		this.clienti = clienti;
-	}
-
-	public void getCliente(String nome, int pIva) {
-		clienti.get(nome);
-	}
-
-	// bisogna collegare l'anagrafica registrazione cliente a questa classe in
-	// modo che quando viene aggiunto un nuovo cliente vada automaticamente in
-	// questa hashmap
 
 	
 	public static void saveDatabaseClienti() throws IOException {
 		FileWriter writer = new FileWriter("ClientsDatabase.csv");
 
-		for (String name : clienti.keySet()) {
-			writer.append(clienti.get(name).toString()); // nOrdine
+		for (Entry<String, Cliente> entry : clienti.entrySet()) {
+			writer.append(entry.getKey()); // CodeCliente
 			writer.append(',');
-			writer.append(clienti.get(name).denominazione);
+			writer.append(entry.getValue().denominazione);
 			writer.append(',');
-			writer.append(clienti.get(name).sedeLegale);
+			writer.append(entry.getValue().sedeLegale);
 			writer.append(',');
-			writer.append(clienti.get(name).pIva);
+			writer.append(entry.getValue().pIva);
 			writer.append(',');
-			writer.append(clienti.get(name).eMail);
+			writer.append(entry.getValue().eMail);
 			writer.append(',');
 			writer.append('\n');
 

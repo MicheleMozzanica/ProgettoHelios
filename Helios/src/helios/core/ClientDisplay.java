@@ -1,26 +1,21 @@
 package helios.core;
 
 import java.awt.EventQueue;
-import java.awt.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.swing.JFrame;
-import javax.swing.JTextArea;
-import javax.swing.ListModel;
-import javax.swing.JLabel;
-import javax.swing.DefaultListModel;
+import javax.swing.JTable;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map.Entry;
 import java.awt.event.ActionEvent;
-import javax.swing.JList;
+import javax.swing.JLabel;
 
-public class ClientDisplay extends mainView{
+public class ClientDisplay extends RubricaClienti{
 
 	private JFrame frame;
-	public HashMap<String, Cliente> ImportClienti = new HashMap();
-	ArrayList<Cliente> myClients = new ArrayList<Cliente> ();
+	private JTable ClientTable;
+	private JLabel lblClienti;
 
 	/**
 	 * Launch the application.
@@ -54,52 +49,27 @@ public class ClientDisplay extends mainView{
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Clients");
-		lblNewLabel.setBounds(202, 6, 44, 16);
-		frame.getContentPane().add(lblNewLabel);
+		ClientTable = new JTable(clienti.size(),2);
+		ClientTable.setBounds(6, 35, 438, 204);
+		frame.getContentPane().add(ClientTable);
 		
-		JButton btnNewClient = new JButton("Add New Client");
-		
-		btnNewClient.setBounds(272, 243, 172, 29);
-		frame.getContentPane().add(btnNewClient);
-		
-		
-		JButton RefreshButton = new JButton("Refresh");
-		
-		
-		RefreshButton.setBounds(16, 243, 117, 29);
-		frame.getContentPane().add(RefreshButton);
-		
-		initializeList();
-			
-		//* ACTIONS*//
-		
-		btnNewClient.addActionListener(new ActionListener() {
+		JButton btnNewButton = new JButton("Registra nuovo cliente");
+		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RegistrazioneCliente.main(null);
 			}
-		
-			});
-		
-		RefreshButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				initializeList();
-				
-			}
 		});
+		btnNewButton.setBounds(260, 243, 184, 29);
+		frame.getContentPane().add(btnNewButton);
+		
+		lblClienti = new JLabel("Clienti");
+		lblClienti.setBounds(206, 7, 41, 16);
+		frame.getContentPane().add(lblClienti);
+		 int row=0;
+		 for(Entry<String, Cliente> entry: clienti.entrySet()){
+			 ClientTable.setValueAt(entry.getKey(),row,0);
+			 ClientTable.setValueAt(entry.getValue().denominazione,row,1);
+		      row++;
+		 }
 	}
-
-	private void initializeList() {
-		ImportClienti = MyClienti.getClienti();
-		for (Entry<String, Cliente> entry : ImportClienti.entrySet()) {
-	        myClients.add(entry.getValue());
-	    }
-		for(int i = 0; i < ImportClienti.size();i++) {
-		System.out.println(ImportClienti.get(i).toString());
-	    }
-		JList ClientList = new JList(myClients.toArray());
-		ClientList.setBounds(6, 26, 438, 215);
-		frame.getContentPane().add(ClientList);		
-	}
-
 }

@@ -144,9 +144,10 @@ public class mainView {
 
 		btnOpenClienti.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ClientDisplay.main(null);
 				try {
 					MyClienti.initalizeClients();
+					ClientDisplay.main(null);
+					
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 				System.out.println("Errore nell'inizializzazione dei clienti");
