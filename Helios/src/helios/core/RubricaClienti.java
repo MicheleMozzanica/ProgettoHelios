@@ -64,9 +64,9 @@ public class RubricaClienti {
 		/* il campo CODE sono le prime 3 lettere della denominazione del cliente */
 		clienti.put(Code, clientTmp);
 
-		for (Entry<String, Cliente> entry : clienti.entrySet()) {
-			System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue() + "\n");
-		}
+//		for (Entry<String, Cliente> entry : clienti.entrySet()) {
+//			System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue() + "\n");
+//		}
 
 	}
 

@@ -11,11 +11,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 
-public class ClientDisplay extends RubricaClienti{
+public class ClientDisplay extends RubricaClienti {
 
 	private JFrame frame;
 	private JTable ClientTable;
 	private JLabel lblClienti;
+	private JButton btnRefresh;
 
 	/**
 	 * Launch the application.
@@ -48,11 +49,11 @@ public class ClientDisplay extends RubricaClienti{
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		ClientTable = new JTable(clienti.size(),2);
+
+		ClientTable = new JTable(clienti.size(), 2);
 		ClientTable.setBounds(6, 35, 438, 204);
 		frame.getContentPane().add(ClientTable);
-		
+
 		JButton btnNewButton = new JButton("Registra nuovo cliente");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -61,15 +62,41 @@ public class ClientDisplay extends RubricaClienti{
 		});
 		btnNewButton.setBounds(260, 243, 184, 29);
 		frame.getContentPane().add(btnNewButton);
-		
+
 		lblClienti = new JLabel("Clienti");
 		lblClienti.setBounds(206, 7, 41, 16);
 		frame.getContentPane().add(lblClienti);
-		 int row=0;
-		 for(Entry<String, Cliente> entry: clienti.entrySet()){
-			 ClientTable.setValueAt(entry.getKey(),row,0);
-			 ClientTable.setValueAt(entry.getValue().denominazione,row,1);
-		      row++;
-		 }
+
+		btnRefresh = new JButton("Refresh");
+
+		btnRefresh.setBounds(6, 243, 117, 29);
+		frame.getContentPane().add(btnRefresh);
+
+		initializeTable();
+
+		// *ACTIONS
+
+		btnRefresh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				initializeTable();
+			}
+		});
+
 	}
+
+	public void initializeTable() {
+		int row = 0;
+		for (Entry<String, Cliente> entry : clienti.entrySet()) {
+			ClientTable.setValueAt(entry.getKey(), row, 0);
+			ClientTable.setValueAt(entry.getValue().denominazione, row, 1);
+			row++;
+		}
+
+	}
+
+	public void dispose() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

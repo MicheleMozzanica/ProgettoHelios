@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
-public class RegistrazioneCliente {
+public class RegistrazioneCliente extends ClientDisplay{
 
 	private JFrame frame;
 	private JTextField textDenominazione;
@@ -129,4 +129,5 @@ public class RegistrazioneCliente {
 	
 	
 	}
+	
 }
