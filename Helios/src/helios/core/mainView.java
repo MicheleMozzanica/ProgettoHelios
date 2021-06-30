@@ -21,7 +21,7 @@ import java.awt.event.ActionEvent;
 public class mainView {
 
 	private JFrame frame;
-	static Magazzino myMagazzino = new Magazzino("gino");
+	static Magazzino myMagazzino = new Magazzino();
 	RubricaClienti MyClienti = new RubricaClienti();
 	static RubricaFornitori MyFornitori = new RubricaFornitori();
 	static Gestionale MyGestionale = new Gestionale();
@@ -98,13 +98,8 @@ public class mainView {
 		btnOpenEmettiFattura.setBounds(127, 119, 178, 29);
 		frame.getContentPane().add(btnOpenEmettiFattura);
 
-		JButton btnOpenVisualizzaMagazzino = new JButton("Visualizza Magazzino");
-
-		btnOpenVisualizzaMagazzino.setBounds(127, 160, 178, 29);
-		frame.getContentPane().add(btnOpenVisualizzaMagazzino);
-
 		JButton btnOpenGestioneOrdini = new JButton("Gestione Ordini");
-		btnOpenGestioneOrdini.setBounds(127, 201, 178, 29);
+		btnOpenGestioneOrdini.setBounds(127, 160, 178, 29);
 		frame.getContentPane().add(btnOpenGestioneOrdini);
 
 		JButton btnOpenClienti = new JButton("Clienti");
@@ -122,19 +117,10 @@ public class mainView {
 		JButton btnStartServer = new JButton("Start Server ");
 		btnStartServer.setBounds(327, 0, 117, 29);
 		frame.getContentPane().add(btnStartServer);
-
-		/**
-		 * Actions
-		 * 
-		 * 
-		 */
-
-		btnOpenVisualizzaMagazzino.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ProductsDisplay displayMagazzino = new ProductsDisplay();
-				displayMagazzino.main(null);
-			}
-		});
+		
+		JButton btnEconomy = new JButton("Situazione Economica");
+		btnEconomy.setBounds(155, 243, 165, 29);
+		frame.getContentPane().add(btnEconomy);
 
 		btnOpenRegistraFattura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -185,6 +171,12 @@ public class mainView {
 		btnOpenGestioneOrdini.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Orders_Display.main(null);
+			}
+		});
+		
+		btnEconomy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EconomicSituation.main(null);
 			}
 		});
 	}

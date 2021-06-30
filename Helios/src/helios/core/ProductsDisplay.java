@@ -2,20 +2,22 @@ package helios.core;
 
 import java.awt.EventQueue;
 import java.util.ArrayList;
+import java.util.Map.Entry;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JTable;
 
-public class ProductsDisplay {
+public class ProductsDisplay extends Magazzino{
 
 	private JFrame frame;
-	ArrayList <Prodotto> ImportedProduct = new ArrayList();
-	Magazzino myImportMagazzino = new Magazzino("ImportMagazzino");
-
+	private JTable tableProducts;
 	/**
 	 * Launch the application.
 	 */
@@ -53,23 +55,22 @@ public class ProductsDisplay {
 		JLabel lblMyProducts = new JLabel("Products");
 		lblMyProducts.setBounds(200, 6, 61, 16);
 		frame.getContentPane().add(lblMyProducts);
+		tableProducts = new JTable(myProducts.size(), 2);
+		tableProducts.setBounds(6, 60, 438, 212);
+		frame.getContentPane().add(tableProducts);
+		initializeTable();
 		
 		
+	}
 	
-//		Prodotto myProd1 = new Prodotto("prod1",1,1,22);
-//		Prodotto myProd2 = new Prodotto("prod2",2,4,22);
-//		Prodotto myProd3 = new Prodotto("prod3",2,16,22);
-		ImportedProduct = myImportMagazzino.ExtractProduct();
-		
-		for(Prodotto tmpProd : ImportedProduct)
-		{
-			System.out.println(tmpProd.toString());
+	
+	public void initializeTable() {
+		int row = 0;
+		for (Prodotto tmpProd: myProducts) {
+			tableProducts.setValueAt(tmpProd.nome, row, 0);
+			tableProducts.setValueAt(tmpProd.price + " €", row, 1);
 		}
-		
-		JList ProductsJList = new JList(ImportedProduct.toArray());
-		ProductsJList.setBounds(6, 32, 438, 240);
-		frame.getContentPane().add(ProductsJList);
-		
+
 	}
 	
 }

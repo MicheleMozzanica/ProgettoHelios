@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Gestionale {
+	static Magazzino myMagazzinoUpdate = new Magazzino();
 
 	private static ArrayList<FattureClienti> FattureEmesse = new ArrayList();
 	private static ArrayList<FattureFornitori> FattureRicevute = new ArrayList();
@@ -26,6 +27,22 @@ public class Gestionale {
 	}
 	
 	
+	public static ArrayList<FattureClienti> getFattureEmesse() {
+		return FattureEmesse;
+	}
+
+	public static void setFattureEmesse(ArrayList<FattureClienti> fattureEmesse) {
+		FattureEmesse = fattureEmesse;
+	}
+
+	public static ArrayList<FattureFornitori> getFattureRicevute() {
+		return FattureRicevute;
+	}
+
+	public static void setFattureRicevute(ArrayList<FattureFornitori> fattureRicevute) {
+		FattureRicevute = fattureRicevute;
+	}
+
 	//LOAD DATABASE
 	public static void loadFattureEmesse(String nomeFile) throws ClassNotFoundException, IOException {
 		File tmpFile = new File(nomeFile);
