@@ -156,10 +156,6 @@ public class Display_FattureEmesse extends Gestionale {
 		textCodCliente.setBounds(331, 39, 57, 26);
 		frame.getContentPane().add(textCodCliente);
 
-		JButton btnNewButton = new JButton("Go");
-		btnNewButton.setBounds(400, 39, 44, 29);
-		frame.getContentPane().add(btnNewButton);
-
 		JButton btnCalcolaTotale = new JButton("Calcola Totale");
 
 		btnCalcolaTotale.setBounds(327, 223, 117, 29);

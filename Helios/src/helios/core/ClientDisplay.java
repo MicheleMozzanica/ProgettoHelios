@@ -16,7 +16,6 @@ public class ClientDisplay extends RubricaClienti {
 	private JFrame frame;
 	private JTable ClientTable;
 	private JLabel lblClienti;
-	private JButton btnRefresh;
 	private JLabel lblCodice;
 	private JLabel lblDenominazione;
 
@@ -68,11 +67,6 @@ public class ClientDisplay extends RubricaClienti {
 		lblClienti = new JLabel("Clienti");
 		lblClienti.setBounds(206, 7, 41, 16);
 		frame.getContentPane().add(lblClienti);
-
-		btnRefresh = new JButton("Refresh");
-
-		btnRefresh.setBounds(6, 243, 117, 29);
-		frame.getContentPane().add(btnRefresh);
 		
 		lblCodice = new JLabel("Codice");
 		lblCodice.setBounds(6, 20, 43, 16);
@@ -84,14 +78,6 @@ public class ClientDisplay extends RubricaClienti {
 
 		initializeTable();
 
-		// *ACTIONS
-
-		btnRefresh.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				initializeTable();
-			}
-		});
-
 	}
 
 	public void initializeTable() {
@@ -102,11 +88,6 @@ public class ClientDisplay extends RubricaClienti {
 			row++;
 		}
 
-	}
-
-	public void dispose() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

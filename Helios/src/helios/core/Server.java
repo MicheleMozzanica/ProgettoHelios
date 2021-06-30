@@ -31,10 +31,10 @@ public class Server {
 
 			while ((choose = in.readLine()) != null) {
 				System.out.printf("Richiesta ricevuta", choose);
-				if ("quit".equals(choose) || "N".equals(choose)) {
+				if ("quit".equals(choose) || "N".equals(choose)|| "n".equals(choose)) {
 					System.out.println("Quitting...");
 					break;
-				} else if (!(choose.equals("quit") || "N".equals(choose))) {
+				} else if (!(choose.equals("quit") || "N".equals(choose) || "n".equals(choose))) {
 					out.println("In questa pagina può effettuare un ordine");
 					sendOrdine(client, out, in);
 					myOrderManager.saveDatabaseOrders();

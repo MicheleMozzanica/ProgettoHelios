@@ -54,7 +54,7 @@ public class RubricaClienti {
 
 			}
 		} catch (Exception e) {
-			System.out.println("Error database ordini.");
+			System.out.println("Error database clienti.");
 		}
 
 	}
@@ -84,7 +84,6 @@ public class RubricaClienti {
 			writer.append(entry.getValue().pIva);
 			writer.append(',');
 			writer.append(entry.getValue().eMail);
-			writer.append(',');
 			writer.append('\n');
 
 		}

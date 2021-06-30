@@ -121,6 +121,10 @@ public class mainView {
 		JButton btnEconomy = new JButton("Situazione Economica");
 		btnEconomy.setBounds(155, 243, 165, 29);
 		frame.getContentPane().add(btnEconomy);
+		
+		JButton btnDocumenti = new JButton("Documenti");
+		btnDocumenti.setBounds(127, 201, 178, 29);
+		frame.getContentPane().add(btnDocumenti);
 
 		btnOpenRegistraFattura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -177,6 +181,13 @@ public class mainView {
 		btnEconomy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EconomicSituation.main(null);
+			}
+		});
+		
+
+		btnDocumenti.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DisplayDocs.main(null);
 			}
 		});
 	}
